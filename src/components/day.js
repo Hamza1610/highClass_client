@@ -1,10 +1,15 @@
 import './day.css';
-import { useState } from 'react'
+import EditInput from './editInput';
+import { useState } from 'react';
+
+
 const Day = (props) => {
     const [time, setTime] = useState({
         from: '',
         to: ''
     });
+
+    const [pop,setPop] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -25,10 +30,19 @@ const Day = (props) => {
         })
     }
     const handleEdit = () => {
-        
+        if (pop==true) {
+            
+        } else {
+            
+        }    
     }
     return (
         <div className="day">
+            {pop && (
+                <div className="edit-pop">
+                    {time.map((time) => (<EditInput time={time} />))}
+                </div>
+            )}
             <h3>{props.day}</h3>
             <div className="time-inputs">
                 <div>
