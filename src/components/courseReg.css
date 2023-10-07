@@ -16,6 +16,7 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: 80vw;
+    height: 60vh;
 }
 .semester-selection {
     display: flex;
@@ -24,7 +25,12 @@
     justify-content: center;
 
 }
+.semester-selection a {
+    text-decoration: none;
+}
 .semester-option {
+    color: white;
+    background-color: #007bff;
     margin: 20px;
     padding: 20px;
     border-radius: 8px;

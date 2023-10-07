@@ -1,9 +1,10 @@
 
 import './course.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Courses = () => {
-
+    const data = ['MATH 101', 'MATH 103', 'MATH 105', 'PHY 131', 'PHY 111', 'PHY 161', 'Course 7', 'CHEM 101', 'CHEM 121', 'CHEM 161', 'GENS 104', 'GENS 101']; 
     // Initialize state to store selected courses
     const [selectedCourses, setSelectedCourses] = useState([]);
 
@@ -32,6 +33,7 @@ const Courses = () => {
         .then((response) => response.json())
         .then((data) => {
           console.log('Response from server:', data);
+          alert('Courses registered')
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -39,6 +41,7 @@ const Courses = () => {
     };
     return (
         <div className="courses-div">
+            <h1>Register your courses</h1>
             <table>
             <thead>
                 <tr>
@@ -47,7 +50,7 @@ const Courses = () => {
                 </tr>
             </thead>
             <tbody>
-                {['Course 1', 'Course 2', 'Course 3', 'Course 4', 'Course 5', 'Course 6', 'Course 7', 'Course 8', 'Course 9', 'Course 10', 'Course 11', 'Course 12'].map((course) => (
+                {data.map((course) => (
                 <tr key={course}>
                     <td>{course}</td>
                     <td>
@@ -63,7 +66,7 @@ const Courses = () => {
                 ))}
             </tbody>
             </table>
-            <button onClick={handleSubmit}>Submit</button>
+            <Link to='/api/study-timetable'><button onClick={handleSubmit}>Submit</button></Link>
         </div>    
     )
 

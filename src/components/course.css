@@ -1,4 +1,17 @@
-  /* Style the table */
+  /* Apply a box shadow to the component */
+.courses-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 60vw;
+}
+
+/* Style the table */
   table {
     border-collapse: collapse;
     width: 80%;
