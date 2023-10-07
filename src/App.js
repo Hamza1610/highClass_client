@@ -13,7 +13,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Home />
         <Switch>
           <Route path="/" exact Component={Home} />
           <Route path="/api/" exact Component={CourseReg} />

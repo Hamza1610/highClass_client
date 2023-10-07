@@ -1,13 +1,16 @@
 import Day from './day';
 
-import '';
+import './timeReg.css';
 
 const TimeReg = () => {
     const days = ['Monday', 'Tuesday', 'Wednessday', 'Thusday', 'Friday', 'Saturday', 'Sunday']
 
     return (
         <div className="time-reg">
-            { days.map((day) => <Day key={day} />) }
+            <h1>Register your prefered study time</h1>
+            <div className="days-div">
+                { days.map((day) => <Day key={day} day={day} />) }
+            </div>
         </div>
     )   
 }

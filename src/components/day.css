@@ -1,8 +1,17 @@
 .day {
     width: 25vw;
-    height: 150px;
+
     color: black;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 15px;
+}
+.time-inputs div {
+    font-weight: bold;
+    display: inline-flex;
+    margin: 10px;
+}
+.add-and-edit-div button {
+    margin: 5px;
 }

@@ -1,6 +1,9 @@
 .time-reg {
+    color: black;
+}
+.days-div {
     display: flex;
     flex-wrap: wrap;
-    width: 80vw;
-    color: black;
+    justify-content: center;
+    align-items: center;
 }
