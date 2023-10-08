@@ -19,6 +19,7 @@ const Day = (props) => {
 
     const handleAdd = (e) => {
         const timeData = new FormData();
+        
         timeData.append('time',time);
         console.log(time);
         console.log(timeData.getAll(time));
