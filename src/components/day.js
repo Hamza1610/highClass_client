@@ -4,13 +4,10 @@ import { useState } from 'react';
 
 
 const Day = (props) => {
-    const [time, setTime] = useState({
+    const [time, setTime] = useState([{
         from: '',
         to: ''
-    });
-
-    const [pop,setPop] = useState(false);
-
+    }]);
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setTime({
@@ -24,25 +21,19 @@ const Day = (props) => {
         const timeData = new FormData();
         timeData.append('time',time);
         console.log(time);
+        console.log(timeData.getAll(time));
         setTime({
             from: '',
             to: ''
         })
     }
     const handleEdit = () => {
-        if (pop==true) {
-            
-        } else {
-            
-        }    
+        props.onPop(true);
+        props.onData(time);
     }
+
     return (
         <div className="day">
-            {pop && (
-                <div className="edit-pop">
-                    {time.map((time) => (<EditInput time={time} />))}
-                </div>
-            )}
             <h3>{props.day}</h3>
             <div className="time-inputs">
                 <div>
