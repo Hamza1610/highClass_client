@@ -1,0 +1,71 @@
+.learn-group {
+
+}
+.learn-group-nav {
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 102px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.rooms-div button{
+    margin: 5px;
+}
+.search-div {
+
+}
+.search-input {
+    border-style: groove;
+    border-width: .5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 20vw;
+    height: 47px;
+    margin: 5px;
+}
+
+.learn-group-content {
+    display: flex;
+    flex-wrap: nowrap;
+    position: fixed;
+    top: 190px;
+}
+.roomate-list {
+    overflow-y: scroll;
+    width: 30vw;
+}
+.roomate-chat {
+    width: 65vw;
+}
+.chats-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    overflow-y: scroll;
+    width: 70vw;
+    height: 60vh;
+}
+.chat-pad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 10vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.input-msg {
+    font-size: 1.2rem;
+    width: 85%;
+    height: 47px;
+    border-style: groove;
+    border-radius: 5px;
+    border-width: .5px;
+}
+.send-msg {
+    margin-left: 5px;
+}
