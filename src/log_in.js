@@ -26,7 +26,9 @@ const LogIn = () => {
         <div className="log-in">
             <h1 className="component-label" >Log In</h1>
             <form onSubmit={handleSubmit}>
-                <div className="error-div">{error}</div>
+                {error && (
+                    <div className="error-div">{error}</div>
+                )}
                 <input className="sign-in-input reg_num" name="reg_num" type="text" placeholder="Registration Number: " onChange={(e)=>setEmail(e.target.value)} />
                 <input className="sign-in-input password" name="password" type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} />
                 <input className="submit-button" type="submit" value="Log in"/>
