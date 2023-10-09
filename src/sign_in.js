@@ -37,9 +37,11 @@ const SignIn = () => {
 
     return (
         <div className="sign-in">
-            <h1 className="component-label">Sign In</h1>
+            <h1 className="component-label">Sign up</h1>
             <form onSubmit={handleSubmit}>
-                <div className="error-div">{error}</div>
+                {error && (
+                    <div className="error-div">{error}</div>
+                )}
                 <input
                     className="sign-in-input email"
                     name="email"
@@ -81,7 +83,7 @@ const SignIn = () => {
                 <input
                     className="submit-button"
                     type="submit"
-                    value="Sign in"
+                    value="Sign up"
                     name="submit-button"
                 />
             </form>
