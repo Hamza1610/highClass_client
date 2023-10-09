@@ -1,0 +1,39 @@
+.quiz {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80vh;
+    color: black;
+}
+.quiz div a {
+    text-decoration: none;
+    color: black;
+}
+.quiz-start, .quiz-reward {
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 30vw;
+    height: 400px;
+}
+.quiz-start:hover, .quiz-reward:hover {
+    box-shadow: 0 0 10px #007bff;
+    transition: ease-out .5s;
+
+}
+.quiz-start p {
+    text-align: justify;
+}
+.reward-input {
+    font-size: 1.2rem;
+    border-radius: 5px;
+    width: 20vw;
+    height: 43px;
+    margin: 5px;
+}
+.reward-code-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
