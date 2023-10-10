@@ -24,7 +24,7 @@ const Day = (props) => {
         timeAll.append('to',time['to']);
 
         const Data = { key, timeAll }
-        const response = await fetch('/set-time-table', {
+        const response = await fetch('/set-timetable', {
             method: 'POST',
             body: Data
         })
@@ -36,17 +36,18 @@ const Day = (props) => {
         
         if (response && response.ok) {
             console.log(response);
+            setTime({
+                from: '',
+             to: ''
+           })
             console.log('Data sent successfully');
         }
-        setTime({
-              from: '',
-           to: ''
-         })
 
     }
     const handleEdit = () => {
+        // Here the  onData should be the data returned from server
         props.onPop(true);
-        props.onData(time);
+        props.onData(timeAll);
     }
 
     return (
