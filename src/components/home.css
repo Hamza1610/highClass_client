@@ -34,7 +34,7 @@
     color: black;
     margin: 10px;
 }
-.nav-content .nav-bars div:hover {
+.nav-content div:hover {
     transition: ease-in-out .5s;
     color: #0056b3;
     font-weight: bold;
