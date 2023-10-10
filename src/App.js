@@ -5,14 +5,14 @@ import SignIn from "./sign_in";
 import LogIn from "./log_in";
 import CourseReg from "./components/courseReg";
 import LearnGroup from "./components/learnGroup";
-import Courses from "./components/courses";
+import FCourses from "./components/fcourses";
+import SCourses from "./components/scourses";
 import TimeReg from "./components/timeReg";
 import Quiz from "./components/quiz";
 import ExamBoard from "./components/examBoard";
 
 function App() {
-  const firstSemesterCourses = ['MATH 101', 'MATH 103', 'MATH 105', 'PHY 131', 'PHY 111', 'PHY 161', 'Course 7', 'CHEM 101', 'CHEM 121', 'CHEM 161', 'GENS 104', 'GENS 101'];
-  const secondSemesterCourses = ['Course 1', 'Course 2', 'Course 3', 'Course 4', 'Course 5', 'Course 6', 'Course 7', 'Course 8', 'Course 9', 'Course 10', 'Course 11', 'Course 12'];
+  
   return (
     <Router>
       <div className="App">
@@ -25,8 +25,8 @@ function App() {
           <Route path="/api/learning-grouping" exact Component={LearnGroup}/>
           <Route path="/api/quiz&reward" exact Component={Quiz}/>
           <Route path="/api/exam-board" exact Component={ExamBoard}/>
-          <Route path="/api/courses-first-semester" exact Component={Courses} data={{firstSemesterCourses}} />
-          <Route path="/api/courses-second-semester" exact Component={Courses} data={{secondSemesterCourses}} />
+          <Route path="/api/courses-first-semester" exact Component={FCourses} />
+          <Route path="/api/courses-second-semester" exact Component={SCourses} />
         </Switch>
       </div>
     </Router>
