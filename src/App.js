@@ -8,6 +8,7 @@ import LearnGroup from "./components/learnGroup";
 import Courses from "./components/courses";
 import TimeReg from "./components/timeReg";
 import Quiz from "./components/quiz";
+import ExamBoard from "./components/examBoard";
 
 function App() {
   const firstSemesterCourses = ['MATH 101', 'MATH 103', 'MATH 105', 'PHY 131', 'PHY 111', 'PHY 161', 'Course 7', 'CHEM 101', 'CHEM 121', 'CHEM 161', 'GENS 104', 'GENS 101'];
@@ -23,6 +24,7 @@ function App() {
           <Route path="/api/study-timetable" exact Component={TimeReg}/>
           <Route path="/api/learning-grouping" exact Component={LearnGroup}/>
           <Route path="/api/quiz&reward" exact Component={Quiz}/>
+          <Route path="/api/exam-board" exact Component={ExamBoard}/>
           <Route path="/api/courses-first-semester" exact Component={Courses} data={{firstSemesterCourses}} />
           <Route path="/api/courses-second-semester" exact Component={Courses} data={{secondSemesterCourses}} />
         </Switch>
