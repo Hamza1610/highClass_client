@@ -2,8 +2,10 @@ import './day.css';
 import EditInput from './editInput';
 import { useState } from 'react';
 
-
 const Day = (props) => {
+    const key = props.day;
+    const timeAll = new FormData();
+
     const [time, setTime] = useState([{
         from: '',
         to: ''
@@ -17,16 +19,30 @@ const Day = (props) => {
      
     }
 
-    const handleAdd = (e) => {
-        const timeData = new FormData();
-        
-        timeData.append('time',time);
-        console.log(time);
-        console.log(timeData.getAll(time));
-        setTime({
-            from: '',
-            to: ''
+    const handleAdd = async (e) => {
+        timeAll.append('from',time['from']);
+        timeAll.append('to',time['to']);
+
+        const Data = { key, timeAll }
+        const response = await fetch('/set-time-table', {
+            method: 'POST',
+            body: Data
         })
+
+        const json = response.json();
+        if (!response.ok) {
+            console.log(json.error);
+        }
+        
+        if (response && response.ok) {
+            console.log(response);
+            console.log('Data sent successfully');
+        }
+        setTime({
+              from: '',
+           to: ''
+         })
+
     }
     const handleEdit = () => {
         props.onPop(true);
