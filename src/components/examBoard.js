@@ -1,6 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './examBoard.css'
+import { set } from 'mongoose';
 const ExamBoard = () => {
+
+    const [min,setMin] = useState(60);
+    const [sec, setSec] = useState(60);
+    const useTimer = () => {
+        useEffect(()=> {
+                if (sec) {
+                    setSec(sec-1);    
+                    if (sec == 0) {
+                        setMin(min-1);
+                        setSec(60);
+                    }
+                }
+        },1000);
+    }
+
+    useTimer();
+
     const [optionA, setOptionA] = useState({});
     const [optionB, setOptionB] = useState({});
     const [optionC, setOptionC] = useState({});
@@ -44,7 +62,7 @@ const ExamBoard = () => {
                     <div className="constants-values"></div>
                     <div className="exam-time">
                         {/* A count down  */}
-                        Time: 20:00
+                        Time: {min}:{sec}
                     </div>
                 </div>
                 <div className="question-option">
