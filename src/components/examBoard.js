@@ -4,17 +4,21 @@ import { set } from 'mongoose';
 const ExamBoard = () => {
 
     const [min,setMin] = useState(60);
-    const [sec, setSec] = useState(60);
+    const [sec, setSec] = useState(0);
     const useTimer = () => {
         useEffect(()=> {
+            setTimeout(()=>{
                 if (sec) {
                     setSec(sec-1);    
-                    if (sec == 0) {
-                        setMin(min-1);
-                        setSec(60);
-                    }
                 }
-        },1000);
+                if (sec == 0) {
+                    setMin(min-1);
+                    setSec(59);
+                }
+                // Later going to add red color when time is 5 minutes to ellapse
+                console.log('Timer');
+            }, 1000)
+        });
     }
 
     useTimer();
