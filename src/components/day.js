@@ -39,11 +39,11 @@ const Day = (props) => {
             <div className="time-inputs">
                 <div>
                     <label htmlFor='from'>From : </label>
-                    <input id='from' name='from' type="time" value={time.from} onChange={handleInputChange}/>
+                    <input id='from' name='from' type="time" value={time['from']} onChange={handleInputChange}/>
                 </div>
                 <div>
                     <label htmlFor='to'>To : </label>
-                    <input id='to' name='to' type="time" value={time.to} onChange={handleInputChange}/>
+                    <input id='to' name='to' type="time" value={time['to']} onChange={handleInputChange}/>
                 </div>
             </div>
             <div className="add-and-edit-div">
