@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const FCourses = (props) => {
-    const data = props.data;
-    console.log(props);
 
     // Initialize state to store selected courses
     const [selectedCourses, setSelectedCourses] = useState([]);
@@ -23,14 +21,25 @@ const FCourses = (props) => {
   
     // Function to submit selected courses to the server
     const handleSubmit = () => {
-      // Here, you would send selectedCourses to your server using an HTTP request (e.g., fetch or Axios).
-      // Replace the URL with your server endpoint.
-      fetch('/your-server-endpoint', {
+      // short some times don't work the we want
+      // const courses = {}
+      // let count = 1
+      // selectedCourses.map((item) => {
+      //   ++count
+      //   courses[count] = item
+      //   return courses;
+      // })
+      // long code sometimes are better then short
+      const data = { RegNum: 'Your reg Number', Courses: selectedCourses}
+      console.log(data);
+      fetch('/course-reg', {
         method: 'POST',
-        body: JSON.stringify(selectedCourses),
+        body: JSON.stringify(data),
+        // Important to actually add this if data is a json type
         headers: {
           'Content-Type': 'application/json',
         },
+
       })
         .then((response) => response.json())
         .then((data) => {
