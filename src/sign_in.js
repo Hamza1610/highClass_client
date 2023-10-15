@@ -17,12 +17,48 @@ const SignIn = () => {
             setEmail('Password and Confirm password does not match')
         } else {
             try {
+                try {
+                    // the key here should be the same with the models
+                    const data = {
+                        'Email': email,
+                        'Course': department,
+                        'RegistrationNum': regNumber,
+                        'Password': password,
+                    }
+                    // delete this later original is in the error handler
+                    localStorage.setItem('regNumber', regNumber);
+                    console.log(data);
+                    const response = await fetch('/sign-up', {
+                        method: 'POST',
+                        body: JSON.stringify(data),
+                        headers: {
+                            'Content-Type': 'application/json',
+                          },
+                    })
+                    const json = response.json();
+                    if (!response.ok) {
+                        setError(json.error)
+                    }
+                    if (response && response.ok) {
+                        // this store unique registration number to the browser
+                        localStorage.setItem('regNumber', regNumber);
+                        setError('')
+                        setDepartment('')
+                        setRegNumber('')
+                        setPassword('')
+            
+                        console.log("Registered successfully ");
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+                // Later user variable is to be placed above the data form valriable
                 const user = await createUserWithEmailAndPassword(auth, email, password);
                 console.log(user);
             } catch (error) {
-                console.error(error.message);
+                console.log(error.message);
                 if (error.message) {
-                    setError('Please enter a valid email, atleast 6 character password');
+                    setError(error.message);
                 }
             }
             console.log(password);
@@ -48,11 +84,17 @@ const SignIn = () => {
                     type="text"
                     placeholder="Email"
                     onChange={(e) => { setEmail(e.target.value) }}
+                    value={email}
+                    required
                 />
                 <select
+                    name="department"
                     className="sign-in-input department"
-                    onChange={(e) => { setDepartment(e.target.value) }}
+                    onChange={(e) => { setDepartment(e.target.value) }
+                    }
+                    value={department}
                 >
+                    <option name="option" value="" key="">Department</option>
                     <option name="option" value="Electrical engineering" key="Electrical engineering">Electrical engineering</option>
                     <option name="option" value="Computer engineering" key="Computer engineering">Computer engineering</option>
                     <option name="option" value="Mechanical engineering" key="Mechanical engineering">Mechanical engineering</option>
@@ -65,6 +107,8 @@ const SignIn = () => {
                     name="reg_num"
                     type="text"
                     placeholder="Registration Number"
+                    value={regNumber}
+                    required
                 />
                 <input
                     onChange={(e) => { setPassword(e.target.value) }}
@@ -72,6 +116,8 @@ const SignIn = () => {
                     name="password"
                     type="password"
                     placeholder="Password"
+                    value={password}
+                    required
                 />
                 <input
                     onChange={(e) => { setConfirmPassword(e.target.value) }}
@@ -79,12 +125,14 @@ const SignIn = () => {
                     name="confirm-password"
                     type="password"
                     placeholder="Confirm Password"
+                    required
                 />
                 <input
                     className="submit-button"
                     type="submit"
                     value="Sign up"
                     name="submit-button"
+                    required
                 />
             </form>
         </div>
