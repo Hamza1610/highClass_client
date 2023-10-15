@@ -1,15 +1,14 @@
 import './day.css';
-import EditInput from './editInput';
 import { useState } from 'react';
 
 const Day = (props) => {
-    const key = props.day;
-    const timeAll = new FormData();
 
     const [time, setTime] = useState([{
         from: '',
         to: ''
     }]);
+
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setTime({
@@ -20,13 +19,20 @@ const Day = (props) => {
     }
 
     const handleAdd = async (e) => {
-        timeAll.append('from',time['from']);
-        timeAll.append('to',time['to']);
+        const day = props.day;
+        const reg_num = localStorage.getItem('regNumber')
+        // const timeAll = new FormData();
 
-        const Data = { key, timeAll }
-        const response = await fetch('/set-timetable', {
+        // timeAll.append('from',time['from']);
+        // timeAll.append('to',time['to']);
+        const data = { reg_num: reg_num,  day: day, from: time.from, to: time.to}
+        console.log(data);
+        const response = await fetch('/time-reg', {
             method: 'POST',
-            body: Data
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+              },
         })
 
         const json = response.json();
@@ -47,7 +53,7 @@ const Day = (props) => {
     const handleEdit = () => {
         // Here the  onData should be the data returned from server
         props.onPop(true);
-        props.onData(timeAll);
+        props.onData(time);
     }
 
     return (
