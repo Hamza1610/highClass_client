@@ -5,7 +5,7 @@ import './timeReg.css';
 
 const TimeReg = () => {
     const days = ['Monday', 'Tuesday', 'Wednessday', 'Thusday', 'Friday', 'Saturday', 'Sunday']
-    const [editableData, setEditableData] = useState(null);
+    const [editableData, setEditableData] = useState({});
     const [popSetter, setPopSetter] = useState(false);
 
     // This function handles data from Day component
