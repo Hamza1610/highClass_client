@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './learnGroup.css';
-import Room from './room';
+import RoomOne from './roomOne';
+import RoomTwo from './roomTwo';
 const LearnGroup = () => {
     const [roomOne, setRoomOne] = useState(true);
     const [roomTwo, setRoomTwo] = useState(false);
@@ -26,8 +27,8 @@ const LearnGroup = () => {
                 </div>
             </div>
             {/* To get chats for both Room two collections are created and useEffect is used to fetch them */}
-            {roomOne && (<Room/>)}
-            {roomTwo && (<Room/>)}
+            {roomOne && (<RoomOne />)}
+            {roomTwo && (<RoomTwo />)}
         </div>
     )
 }
