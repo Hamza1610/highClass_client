@@ -8,6 +8,7 @@ const Day = (props) => {
         to: ''
     }]);
 
+    // const [daySet, setDaySet] = useState('')
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -20,11 +21,12 @@ const Day = (props) => {
 
     const handleAdd = async (e) => {
         const day = props.day;
-        const reg_num = localStorage.getItem('regNumber')
-        // const timeAll = new FormData();
+        // this set day for th pop/editinput component
+        // setDaySet(day);
+        // 
 
-        // timeAll.append('from',time['from']);
-        // timeAll.append('to',time['to']);
+        const reg_num = localStorage.getItem('regNumber')
+
         const data = { reg_num: reg_num,  day: day, from: time.from, to: time.to}
         console.log(data);
         const response = await fetch('/time-reg', {
@@ -51,9 +53,12 @@ const Day = (props) => {
 
     }
     const handleEdit = () => {
+        const day = props.day
+        localStorage.setItem('editDay',day)
         // Here the  onData should be the data returned from server
         props.onPop(true);
         props.onData(time);
+        // props.daySet(props.day);
     }
 
     return (
