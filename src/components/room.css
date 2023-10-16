@@ -1,0 +1,35 @@
+.msg-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #007bff;
+    color: white;
+    max-width: 50%;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 8px;
+}
+.msg-err {
+    margin: 4px;
+}
+.msg-author {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.msg-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    font-size: 1.2rem; 
+}
+
+.msg-box span {
+    font-size: 0.9rem;
+    text-align: right;
+}
+.msg-box small {
+    font-size: 0.9rem;
+    text-align: right;
+}
