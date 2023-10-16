@@ -3,7 +3,7 @@
 }
 .learn-group-nav {
     width: 100vw;
-    height: 70px;
+    height: 65px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -32,7 +32,7 @@
     display: flex;
     flex-wrap: nowrap;
     position: fixed;
-    top: 190px;
+    top: 200px;
 }
 .roomate-list {
     overflow-y: scroll;
@@ -48,6 +48,8 @@
     align-content: center;
     overflow-y: scroll;
     width: 70vw;
+    z-index: 1;
+    min-height: fit-content;
     height: 60vh;
 }
 .chat-pad {
