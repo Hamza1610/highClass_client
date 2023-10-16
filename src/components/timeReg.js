@@ -7,11 +7,16 @@ const TimeReg = () => {
     const days = ['Monday', 'Tuesday', 'Wednessday', 'Thusday', 'Friday', 'Saturday', 'Sunday']
     const [editableData, setEditableData] = useState({});
     const [popSetter, setPopSetter] = useState(false);
+    // const [daySetter, setDaySetter] = useState('');
 
     // This function handles data from Day component
     const editableFetcher = (data) => {
         setEditableData(data);
     }
+
+    // const dayCatcher = (day) => {
+    //     return setDaySetter(day);
+    // }
     const popFetcher = (pop) => {
         setPopSetter(pop);
     }
@@ -19,7 +24,7 @@ const TimeReg = () => {
     // POP FUNCTIONS
 
     const saveEdit = () => {
-        // Need to save the time to the time variable
+        // Need to save the time to the time variable        
         setPopSetter(false);
     }
 
@@ -28,8 +33,8 @@ const TimeReg = () => {
             {popSetter && (
                 <div className="edit-pop">
                     {/* Later after i add the day(Mon, tues, wed ..) to each time the will be day  */}
-                    {[editableData].map((time) => (<EditInput key={time} time={time} />))}
-                    <button className='save-edit' onClick={saveEdit}>Save</button>
+                    <EditInput saveEdit={saveEdit}/>
+                    
                 </div>
             )}
             <div className='study-time-content'>
