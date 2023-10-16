@@ -1,9 +1,9 @@
 .time-edit {
-    color: black;
-    display: flex;
-    flex-wrap:wrap;
-    margin: 10px;
+    width: 25vw;
 }
-.time-edit input {
+.time-edit div {
+    font-weight: bold;
+}
+.edit-input-pair input {
     margin: 10px;
 }
