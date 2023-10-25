@@ -24,7 +24,7 @@ function App() {
           <Route path="/api/study-timetable" exact Component={TimeReg}/>
           <Route path="/api/learning-grouping" exact Component={LearnGroup}/>
           <Route path="/api/quiz&reward" exact Component={Quiz}/>
-          <Route path="/api/exam-board" exact Component={ExamBoard}/>
+          <Route path="/exam-board" exact Component={ExamBoard}/>
           <Route path="/api/courses-first-semester" exact Component={FCourses} />
           <Route path="/api/courses-second-semester" exact Component={SCourses} />
         </Switch>

@@ -5,7 +5,7 @@ import TimeReg from './timeReg';
 import Quiz from './quiz';
 import './home.css';
 const Home = () => {
-    const [learn, setLearn] = useState(false);    
+    const [learn, setLearn] = useState(true);    
     const [readTime, setReadTime] = useState(false);    
     const [quiz, setQuiz] = useState(false);
     
